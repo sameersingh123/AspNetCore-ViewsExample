@@ -1,0 +1,48 @@
+﻿@model PersonWithProductWrapper
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Person With Product</title>
+        <link href="~/Stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="page-content">
+            <h1>Person with Product</h1>
+            <div class="box w-100">
+                <h3>Person</h3>
+                <table class="table w-50">
+                    <tbody>
+                        <tr>
+                            <td>Person Name</td>
+                            <td>@Model.PersonDetails.Name</td>
+                        </tr>
+                        <tr>
+                            <td>Gender</td>
+                            <td>@Model.PersonDetails.PersonGender</td>
+                        </tr>
+                        <tr>
+                            <td>Date Of Birth</td>
+                            <td>@Model.PersonDetails.DateOfBirth?.ToString("MM/dd/yyyy")</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="box w-100">
+                <h3>Product</h3>
+            <table class="table w-50">
+                <tbody>
+                    <tr>
+                        <td>Product Id</td>
+                        <td>@Model.ProductDetails.ProductId</td>
+                    </tr>
+                    <tr>
+                        <td>Product Name</td>
+                        <td>@Model.ProductDetails.ProductName</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </body>
+</html>

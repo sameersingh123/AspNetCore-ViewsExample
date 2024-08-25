@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Person>  //specifies that this Viw(Index.cshtml) is binded to the list of person
+
+<!DOCTYPE html>
+<html>
+   <head>
+       @* <title>@ViewData["appTitle"]</title> *@
+
+       <title>@ViewBag.appTitle</title>                     //Here we are supplying the key of the ViewData Object(property)
+       <link href="~/Stylesheet.css" rel="stylesheet" />
+   </head>
+   <body>
+
+       <div class="page-content">
+            <h1>Person</h1>
+            @* @{
+                List<Person>? people = (List<Person>?)ViewData["people"];   //To convert ViewData Object type into list of Person in order to retrive the data
+            } *@
+
+            @foreach (Person person in Model)         //(Person person in ViewBag.people)
+            {
+                <div class="box float-left w-50">
+                <h3>@person.Name</h3>
+
+                <table class="table w-100">
+                        <tbody>
+                            <tr>
+                                <td>Gender</td>
+                                <td>@person.PersonGender</td>
+                            </tr>
+                            <tr>
+                                <td>DateOfBirth</td>
+                                <td>@person.DateOfBirth?.ToString("MM/dd/yyyy")</td>
+                            </tr>
+                        </tbody>
+                 </table>
+                <div>
+                    <a href="/person-details/@person.Name">Details</a>
+                </div>
+                </div>
+            
+
+            }
+        <div>
+            <a href="/person-with-product">Person with Product</a>
+        </div>
+
+       </div>
+
+                                                        
+
+
+   </body>
+
+
+</html>
